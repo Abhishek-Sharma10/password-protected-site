@@ -31,6 +31,10 @@ app.post("/check",(req,res)=>{
     
 })
 
+app.get('/api/health',(req,res)=>{
+    res.json({status:'online',provider:'Abhishek-Sharma10',models:GROQ_MODELS});
+})
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
