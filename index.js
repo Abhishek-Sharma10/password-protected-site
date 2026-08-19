@@ -4,8 +4,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 5000;
-const hostname = '127.0.0.1';
+const port = process.env.PORT || 5000;
 var userIsAuthorised = false;
 
 app.use(express.urlencoded({extended:true}));
@@ -32,6 +31,6 @@ app.post("/check",(req,res)=>{
     
 })
 
-app.listen(port,hostname, ()=>{
-    console.log(`server running at https://${hostname}:${port}/`);
-})
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
